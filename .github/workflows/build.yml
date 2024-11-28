@@ -23,19 +23,13 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu'
-
-      # Paso 3: Cache de dependencias de Maven
+          
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-m2
-
-      # Paso 4: Configurar Maven (no es necesario porque ya se configura con JDK)
-      # (Ya no es necesario configurar Maven aquí si se usa `setup-java` con JDK 17)
-
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
       # Paso 5: Compilar y analizar con SonarQube
       - name: Build and analyze with SonarQube
         env:
