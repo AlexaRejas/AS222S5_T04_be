@@ -24,30 +24,19 @@ jobs:
           java-version: 17
           distribution: 'zulu'
 
-      # Paso 3: Cache de SonarQube para mejorar velocidad
-      - name: Cache SonarQube Cloud packages
-        uses: actions/cache@v4
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-
-      # Paso 4: Cache de dependencias de Maven
+      # Paso 3: Cache de dependencias de Maven
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
-          path: ~/.m2
+          path: ~/.m2/repository
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-m2
 
-      # Paso 5: Configurar Maven si es necesario
-      - name: Set up Maven
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'maven'
+      # Paso 4: Configurar Maven (no es necesario porque ya se configura con JDK)
+      # (Ya no es necesario configurar Maven aquí si se usa `setup-java` con JDK 17)
 
-      # Paso 6: Compilar y analizar con SonarQube
+      # Paso 5: Compilar y analizar con SonarQube
       - name: Build and analyze with SonarQube
         env:
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
