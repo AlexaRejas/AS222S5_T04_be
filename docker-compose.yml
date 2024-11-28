@@ -15,7 +15,7 @@ version: '3'
 
 services:
   backend:
-    image: diegoramos678/spring-reactive:latest
+    image: rejas281/spring-reactive:latest
     ports:
       - "8080:8080"
     environment:
