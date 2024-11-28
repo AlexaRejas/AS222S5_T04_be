@@ -25,7 +25,7 @@ services:
       API_KEY: ${API_KEY}
 
   frontend:
-    image: diegoramos678/ms-chat:latest
+    image: rejas281/spring-reactive:latest
     ports:
       - "4200:4200"
     depends_on:
