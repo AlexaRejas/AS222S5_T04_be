@@ -15,7 +15,7 @@ version: '3'
 
 services:
   backend:
-    image: rejas281/spring-reactive:latest
+    image: rejas281/frondend:latest
     ports:
       - "8080:8080"
     environment:
@@ -24,9 +24,3 @@ services:
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       API_KEY: ${API_KEY}
 
-  frontend:
-    image: rejas281/spring-reactive:latest
-    ports:
-      - "4200:4200"
-    depends_on:
-      - backend
