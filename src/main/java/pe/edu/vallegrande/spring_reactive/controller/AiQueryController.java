@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/api/queries")
 @CrossOrigin(origins = "*")
 public class AiQueryController {
-
+    
     @Autowired
     private AiQueryService aiQueryService;
 

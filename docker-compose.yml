@@ -12,7 +12,6 @@ version: '3'
 #      API_KEY: ${API_KEY}
 
 #docker run -p 8080:8080 --name mycontenedor -e DATABASE_URL=r2dbc:postgresql://ep-flat-silence-a44kj12l.us-east-1.aws.neon.tech:5432/service?sslmode=require -e DATABASE_USERNAME=service_owner -e DATABASE_PASSWORD=TXbO5YFWo6GI -e API_KEY=AIzaSyDO05skHcsky6fyKZMcQoH_40-rmEX9TpE diegoramos678/spring-reactive:latest
-
 services:
   backend:
     image: rejas281/frondend:latest
